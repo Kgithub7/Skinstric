@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@import "tailwindcss-animated";
+@theme {
+  --font-sans: "Roobert", sans-serif;
+}
