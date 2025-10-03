@@ -32,7 +32,7 @@ function Home() {
           </div>
         </div>
       </Link>
-      <div className="absolute top-1/2 left-1/2 -translate-1/2 animate-fade text-center text-[100px] leading-none transition-all duration-900 ease-in-out animate-duration-2000 animate-ease-in-out [.left-arrow:hover~&]:left-3/4 [.left-arrow:hover~&>p]:translate-x-1/5 [.right-arrow:hover~&]:left-1/4 [.right-arrow:hover~&>p]:-translate-x-1/6">
+      <div className="absolute top-1/2 left-1/2 -translate-1/2 animate-fade text-center text-[100px] leading-none transition-all duration-900 ease-in-out animate-duration-2000 animate-ease-in-out [.left-arrow:hover~&]:left-3/4 [.left-arrow:hover~&>p]:translate-x-1/5 [.right-arrow:hover~&]:left-1/4 [.right-arrow:hover~&>p]:-translate-x-1/5">
         <h1>Sophisticated</h1>
         <p className="transition-all duration-900 ease-in-out">skincare</p>
       </div>

@@ -1,5 +1,14 @@
 @import "tailwindcss";
 @import "tailwindcss-animated";
+
+@font-face {
+  font-family: "Roobert";
+  src: url("src/assets/fonts/Roobert.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-sans: "Roobert", sans-serif;
+  --font-sans: "Roobert", sans-serif, system-ui;
 }
