@@ -7,7 +7,7 @@ function Home() {
       <div className="left-square absolute aspect-square h-screen -translate-x-4/5 rotate-45 overflow-hidden border-1 border-dotted border-gray-400 transition-all duration-900 ease-in-out"></div>
       <Link
         to={"/"}
-        className="left-arrow absolute top-1/2 right-17/20 z-1 -translate-y-1/2 text-[14px] transition-all duration-900 ease-in-out"
+        className="left-arrow absolute top-1/2 right-17/20 z-1 -translate-y-1/2 text-sm transition-all duration-900 ease-in-out"
       >
         <div className="group flex items-center gap-x-5">
           <div className="rotate-45 items-center border-1 p-0 transition-transform duration-300 ease-in-out group-hover:scale-110">
@@ -21,7 +21,7 @@ function Home() {
       <div className="right-square absolute right-0 aspect-square h-screen translate-x-4/5 rotate-45 overflow-hidden border-1 border-dotted border-gray-400 transition-all duration-900 ease-in-out"></div>
       <Link
         to={"/testing"}
-        className="right-arrow absolute top-1/2 left-17/20 z-1 -translate-y-1/2 text-[14px] transition-all duration-900 ease-in-out"
+        className="right-arrow absolute top-1/2 left-17/20 z-1 -translate-y-1/2 text-sm transition-all duration-900 ease-in-out"
       >
         <div className="group flex items-center gap-x-5">
           <span>TAKE TEST</span>
@@ -36,7 +36,7 @@ function Home() {
         <h1>Sophisticated</h1>
         <p className="transition-all duration-900 ease-in-out">skincare</p>
       </div>
-      <div className="absolute bottom-12 left-2 text-[14px]">
+      <div className="absolute bottom-12 left-2 text-sm">
         <p>
           SKINSTRIC DEVELOPED AN A.I. THAT CREATES A <br /> HIGHLY-PERSONALIZED
           ROUTINE TAILORED TO <br /> WHAT YOUR SKIN NEEDS.

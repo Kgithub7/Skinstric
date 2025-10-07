@@ -82,13 +82,13 @@ function Testing() {
           <div className="z-1 text-center">
             <p className="text-gray-400">CLICK TO TYPE</p>
             {empty ? (
-              <p className="text-[14px] text-red-500">
+              <p className="text-sm text-red-500">
                 Please enter your{" "}
                 {localStorage.getItem("Name") ? "city" : "name"}
               </p>
             ) : (
               error && (
-                <p className="text-[14px] text-red-500">
+                <p className="text-sm text-red-500">
                   Please enter a valid{" "}
                   {localStorage.getItem("Name") ? "city" : "name"} without
                   numbers or special characters
@@ -111,7 +111,7 @@ function Testing() {
       </div>
       <Link
         to={"/"}
-        className="left-arrow absolute bottom-3 left-10 z-1 -translate-y-1/2 text-[14px] transition-all duration-900 ease-in-out"
+        className="left-arrow absolute bottom-3 left-10 z-1 -translate-y-1/2 text-sm transition-all duration-900 ease-in-out"
       >
         <div className="group flex items-center gap-x-7">
           <div className="rotate-45 items-center border-1 p-0 transition-transform duration-300 ease-in-out group-hover:scale-110">
@@ -124,8 +124,8 @@ function Testing() {
       </Link>
       {proceed && (
         <Link
-          to={"/"}
-          className="left-arrow absolute right-10 bottom-3 z-1 -translate-y-1/2 animate-fade-right text-[14px] transition-all duration-900 ease-in-out"
+          to={"/result"}
+          className="left-arrow absolute right-10 bottom-3 z-1 -translate-y-1/2 animate-fade-right text-sm transition-all duration-900 ease-in-out"
         >
           <div className="group flex items-center gap-x-7">
             <span className="font-semibold">PROCEED</span>
