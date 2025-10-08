@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Nav from "../components/Nav";
 import { useEffect, useRef, useState } from "react";
+import Nav from "../components/Nav";
 import axios from "axios";
 
 function Testing() {
@@ -11,22 +11,21 @@ function Testing() {
   const [proceed, setProceed] = useState(false);
   const [input, setInput] = useState("");
   useEffect(() => {
-    localStorage.clear();
+    sessionStorage.clear();
   }, []);
 
   const send = async () => {
     const payload = {
-      name: localStorage.getItem("Name"),
-      location: localStorage.getItem("Location"),
+      name: sessionStorage.getItem("Name"),
+      location: sessionStorage.getItem("Location"),
     };
     try {
-      const { data } = await axios.post(
+      await axios.post(
         "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseOne",
         payload,
       );
-      console.log("Server response:", data);
     } catch (error) {
-      console.error("Error sending data:", error);
+      alert("Error sending data");
     }
     setTimeout(() => {
       setLoading(false);
@@ -42,13 +41,13 @@ function Testing() {
       setInput("");
       if (!/^\p{L}+(?:[ .'-]\p{L}+)*$/u.test(input.trim())) {
         setError(true);
-      } else if (!localStorage.getItem("Name")) {
+      } else if (!sessionStorage.getItem("Name")) {
         setError(false);
-        localStorage.setItem("Name", input);
+        sessionStorage.setItem("Name", input);
         inputRef.current.placeholder = "your city name";
       } else {
         setError(false);
-        localStorage.setItem("Location", input);
+        sessionStorage.setItem("Location", input);
         setLoading(true);
         send();
       }
@@ -84,13 +83,13 @@ function Testing() {
             {empty ? (
               <p className="text-sm text-red-500">
                 Please enter your{" "}
-                {localStorage.getItem("Name") ? "city" : "name"}
+                {sessionStorage.getItem("Name") ? "city" : "name"}
               </p>
             ) : (
               error && (
                 <p className="text-sm text-red-500">
                   Please enter a valid{" "}
-                  {localStorage.getItem("Name") ? "city" : "name"} without
+                  {sessionStorage.getItem("Name") ? "city" : "name"} without
                   numbers or special characters
                 </p>
               )
