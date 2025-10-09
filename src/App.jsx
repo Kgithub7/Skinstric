@@ -4,11 +4,13 @@ import Home from "./pages/Home.jsx";
 import Testing from "./pages/Testing.jsx";
 import Result from "./pages/Result.jsx";
 import Select from "./pages/Select.jsx";
+import Summary from "./pages/Summary.jsx";
 
 export const PredictionContext = createContext({
   predictions: {},
   setPredictions: () => {},
 });
+
 function App() {
   const [predictions, setPredictions] = useState({});
   return (
@@ -19,6 +21,7 @@ function App() {
           <Route path="/testing" element={<Testing />} />
           <Route path="/result" element={<Result />} />
           <Route path="/select" element={<Select />} />
+          <Route path="/summary" element={<Summary />} />
         </Routes>
       </Router>
     </PredictionContext>

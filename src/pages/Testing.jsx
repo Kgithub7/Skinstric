@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import Nav from "../components/Nav";
 import axios from "axios";
+import BackButton from "../components/ui/BackButton";
+import ProceedButton from "../components/ui/ProceedButton";
 
 function Testing() {
   const inputRef = useRef(null);
@@ -56,7 +58,7 @@ function Testing() {
   return (
     <>
       <Nav />
-      <p className="px-7 text-[10px] font-bold">TO START ANALYSIS</p>
+      <p className="mx-7 text-xs font-bold">TO START ANALYSIS</p>
       <div className="absolute top-1/2 left-1/2 flex -translate-1/2 flex-col items-center justify-center">
         <div className="absolute size-[30dvw] -rotate-45 animate-spin overflow-hidden border-3 border-dotted border-gray-300 transition-all duration-900 ease-in-out animate-duration-[80000ms] animate-infinite"></div>
         <div className="absolute size-[32dvw] -rotate-35 animate-spin overflow-hidden border-3 border-dotted border-gray-300 opacity-70 transition-all duration-900 ease-in-out animate-duration-[70000ms] animate-infinite"></div>
@@ -108,34 +110,8 @@ function Testing() {
           </div>
         )}
       </div>
-      <Link
-        to={"/"}
-        className="left-arrow absolute bottom-3 left-10 z-1 -translate-y-1/2 text-sm transition-all duration-900 ease-in-out"
-      >
-        <div className="group flex items-center gap-x-7">
-          <div className="rotate-45 items-center border-1 p-0 transition-transform duration-300 ease-in-out group-hover:scale-110">
-            <span className="left-0 flex aspect-square w-[40px] -translate-x-[2px] translate-y-[2px] -rotate-45 items-center justify-center text-center">
-              ◀
-            </span>
-          </div>
-          <span className="font-semibold">BACK</span>
-        </div>
-      </Link>
-      {proceed && (
-        <Link
-          to={"/result"}
-          className="left-arrow absolute right-10 bottom-3 z-1 -translate-y-1/2 animate-fade-right text-sm transition-all duration-900 ease-in-out"
-        >
-          <div className="group flex items-center gap-x-7">
-            <span className="font-semibold">PROCEED</span>
-            <div className="rotate-45 items-center border-1 p-0 transition-transform duration-300 ease-in-out group-hover:scale-110">
-              <span className="left-0 flex aspect-square w-[40px] translate-x-[2px] -translate-y-[2px] -rotate-45 items-center justify-center text-center">
-                ▶
-              </span>
-            </div>
-          </div>
-        </Link>
-      )}
+      <BackButton page={""} />
+      {proceed && <ProceedButton page={"result"} text={"PROCEED"}/>}
     </>
   );
 }

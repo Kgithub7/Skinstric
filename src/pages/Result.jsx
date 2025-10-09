@@ -6,6 +6,7 @@ import CameraImg from "../assets/Camera.png";
 import CameraArrow from "../assets/CameraArrow.png";
 import GalleryImg from "../assets/Gallery.png";
 import GalleryArrow from "../assets/GalleryArrow.png";
+import BackButton from "../components/ui/BackButton.jsx";
 import axios from "axios";
 
 function Result() {
@@ -128,19 +129,7 @@ function Result() {
               </div>
             </div>
           </div>
-          <Link
-            to={"/testing"}
-            className="left-arrow absolute bottom-3 left-10 z-1 -translate-y-1/2 text-sm transition-all duration-900 ease-in-out"
-          >
-            <div className="group flex items-center gap-x-7">
-              <div className="rotate-45 items-center border-1 p-0 transition-transform duration-300 ease-in-out group-hover:scale-110">
-                <span className="left-0 flex aspect-square w-[40px] -translate-x-[2px] translate-y-[2px] -rotate-45 items-center justify-center text-center">
-                  ◀
-                </span>
-              </div>
-              <span className="font-semibold">BACK</span>
-            </div>
-          </Link>
+          <BackButton page={"testing"} />
         </>
       ) : (
         <div className="absolute inset-0 flex items-center justify-center">
