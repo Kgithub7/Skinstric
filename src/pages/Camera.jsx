@@ -1,7 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import CameraImg from "../assets/Camera.png";
 import Nav from "../components/Nav";
 
 function Camera() {
+  const navigate = useNavigate();
+  setTimeout(() => {
+    navigate("/camera/capture");
+  }, 2000);
+
   return (
     <>
       <Nav />

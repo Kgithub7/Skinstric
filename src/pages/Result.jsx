@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { PredictionContext } from "../context/PredictionContext.jsx";
 import Nav from "../components/Nav";
 import CameraImg from "../assets/Camera.png";
@@ -32,7 +32,6 @@ function Result() {
       );
 
       const { data } = response.data;
-
       const elapsed = Date.now() - start;
       const remaining = Math.max(0, 2000 - elapsed);
       await new Promise((res) => setTimeout(res, remaining));
@@ -40,7 +39,7 @@ function Result() {
       setPredictions(data);
       navigate("/select");
     } catch (error) {
-      alert("Error sending data");
+      alert("Error Uploading Photo");
     } finally {
       setLoading(false);
     }
@@ -93,14 +92,14 @@ function Result() {
                 </p>
                 <div className="absolute bottom-0 flex h-1/4 w-full items-center justify-end border-t border-white text-right">
                   <button
-                    className="mr-12 cursor-pointer font-semibold text-gray-400"
+                    className="mr-12 cursor-pointer text-sm font-semibold text-gray-400"
                     onClick={() => setModalOpen(false)}
                   >
                     DENY
                   </button>
                   <Link to={"/camera"}>
                     <button
-                      className="mr-3 cursor-pointer font-semibold text-white"
+                      className="mr-3 cursor-pointer text-sm font-semibold text-white"
                       onClick={() => setModalOpen(false)}
                     >
                       ALLOW
