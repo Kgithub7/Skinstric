@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { PredictionContext } from "../App.jsx";
+import { PredictionContext } from "../context/PredictionContext.jsx";
 import Nav from "../components/Nav";
 import CameraImg from "../assets/Camera.png";
 import CameraArrow from "../assets/CameraArrow.png";
@@ -22,24 +22,28 @@ function Result() {
   }, [predictions]);
 
   const upload = async () => {
-    const payload = {
-      image: file,
-    };
+    const payload = { image: file };
+    const start = Date.now();
+
     try {
-      const {
-        data: { data },
-      } = await axios.post(
+      const response = await axios.post(
         "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo",
         payload,
       );
+
+      const { data } = response.data;
+
+      const elapsed = Date.now() - start;
+      const remaining = Math.max(0, 2000 - elapsed);
+      await new Promise((res) => setTimeout(res, remaining));
+
       setPredictions(data);
+      navigate("/select");
     } catch (error) {
       alert("Error sending data");
-    }
-    setTimeout(() => {
+    } finally {
       setLoading(false);
-      navigate("/select");
-    }, 2000);
+    }
   };
 
   useEffect(() => {
@@ -94,12 +98,14 @@ function Result() {
                   >
                     DENY
                   </button>
-                  <button
-                    className="mr-3 cursor-pointer font-semibold text-white"
-                    onClick={() => setModalOpen(false)}
-                  >
-                    ALLOW
-                  </button>
+                  <Link to={"/camera"}>
+                    <button
+                      className="mr-3 cursor-pointer font-semibold text-white"
+                      onClick={() => setModalOpen(false)}
+                    >
+                      ALLOW
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

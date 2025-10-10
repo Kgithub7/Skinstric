@@ -12,6 +12,7 @@ function Testing() {
   const [proceed, setProceed] = useState(false);
   const [input, setInput] = useState("");
   useEffect(() => {
+    inputRef.current.focus();
     sessionStorage.clear();
   }, []);
 
@@ -20,18 +21,19 @@ function Testing() {
       name: sessionStorage.getItem("Name"),
       location: sessionStorage.getItem("Location"),
     };
+    const delay = new Promise((res) => setTimeout(res, 2000));
+    const request = axios.post(
+      "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseOne",
+      payload,
+    );
     try {
-      await axios.post(
-        "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseOne",
-        payload,
-      );
+      await Promise.all([delay, request]);
+      setProceed(true);
     } catch (error) {
       alert("Error sending data");
-    }
-    setTimeout(() => {
+    } finally {
       setLoading(false);
-      setProceed(true);
-    }, 2000);
+    }
   };
 
   const verify = (event) => {

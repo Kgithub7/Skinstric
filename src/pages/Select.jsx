@@ -14,7 +14,7 @@ function Select() {
       <p className="mx-7 text-sm font-medium">
         FIX ESTIMATED INFORMATION IF NEEDED.
       </p>
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute top-1/2 left-1/2 flex -translate-1/2 items-center justify-center">
         <div className="absolute z-1 size-[20.5dvw] -rotate-45 transition-all [&>*]:absolute [&>*]:overflow-hidden [&>*]:transition-all [&>*]:duration-500 [&>*]:ease-out [&>*:not(.border-dotted)]:size-[10dvw] [&>*:not(.border-dotted)]:transition-transform [&>*:not(.border-dotted)]:duration-300 [&>*:not(.border-dotted)]:hover:bg-gray-300 [&>.border-dotted]:top-1/2 [&>.border-dotted]:left-1/2 [&>.border-dotted]:-z-1 [&>.border-dotted]:size-[20dvw] [&>.border-dotted]:-translate-1/2 [&>.border-dotted]:border-3 [&>.border-dotted]:border-gray-300 [&>.border-dotted]:opacity-0">
           <div className="cursor-not-allowed bg-gray-100 [&:hover~.medium-box]:size-[28dvw] [&:hover~.medium-box]:opacity-100">
             <p className="absolute top-1/2 left-1/2 -translate-1/2 rotate-45 font-semibold">
