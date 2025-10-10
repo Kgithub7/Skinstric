@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import Nav from "../components/Nav";
 import axios from "axios";
@@ -111,7 +110,7 @@ function Testing() {
         )}
       </div>
       <BackButton page={""} />
-      {proceed && <ProceedButton page={"result"} text={"PROCEED"}/>}
+      {proceed && <ProceedButton page={"result"} text={"PROCEED"} />}
     </>
   );
 }

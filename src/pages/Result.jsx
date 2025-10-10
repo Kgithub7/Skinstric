@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { PredictionContext } from "../App.jsx";
 import Nav from "../components/Nav";
@@ -11,11 +11,15 @@ import axios from "axios";
 
 function Result() {
   const navigate = useNavigate();
-  const { setPredictions } = useContext(PredictionContext);
+  const { predictions, setPredictions } = useContext(PredictionContext);
   const [loading, setLoading] = useState();
   const [modalOpen, setModalOpen] = useState(false);
   const [file, setFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("predictions", JSON.stringify(predictions));
+  }, [predictions]);
 
   const upload = async () => {
     const payload = {
@@ -100,7 +104,7 @@ function Result() {
               </div>
             </div>
             <div
-              className={`relative flex w-2/5 items-center justify-center ${modalOpen ? "opacity-50" : ""} transition-all duration-300 ease-in-out`}
+              className={`relative flex w-2/5 items-center justify-center ${modalOpen ? "pointer-events-none opacity-50" : ""} transition-all duration-300 ease-in-out`}
             >
               <div className="absolute size-[18dvw] -rotate-45 animate-spin overflow-hidden border-3 border-dotted border-gray-300 transition-all duration-900 ease-in-out animate-duration-[80000ms] animate-infinite"></div>
               <div className="absolute size-[20dvw] -rotate-35 animate-spin overflow-hidden border-3 border-dotted border-gray-300 opacity-70 transition-all duration-900 ease-in-out animate-duration-[70000ms] animate-infinite"></div>

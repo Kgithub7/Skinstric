@@ -1,7 +1,7 @@
+import { Link } from "react-router-dom";
 import ProceedButton from "../components/ui/ProceedButton.jsx";
 import Nav from "../components/Nav.jsx";
 import BackButton from "../components/ui/BackButton.jsx";
-import { Link } from "react-router-dom";
 
 function Select() {
   return (
