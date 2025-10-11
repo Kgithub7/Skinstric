@@ -7,10 +7,6 @@ import RadioButton from "../assets/Radio.png";
 import ConfidenceCircle from "../components/ui/ConfidenceCircle.jsx";
 
 function Summary() {
-  const demographics = Object.keys(
-    JSON.parse(localStorage.getItem("predictions")),
-  );
-
   const predictions = Object.values(
     JSON.parse(localStorage.getItem("predictions")),
   );
@@ -52,13 +48,15 @@ function Summary() {
   );
 
   return (
-    <>
+    <div className="relative overflow-x-hidden lg:h-screen lg:overflow-y-hidden">
       <Nav />
-      <p className="mx-7 mb-2 text-sm font-bold">A.I. ANALYSIS</p>
-      <h1 className="mx-6 mb-2 text-6xl">DEMOGRAPHICS</h1>
+      <p className="mx-7 mb-1 text-sm font-bold">A.I. ANALYSIS</p>
+      <h1 className="mx-6 mb-1 text-4xl lg:text-5xl xl:text-6xl">
+        DEMOGRAPHICS
+      </h1>
       <h1 className="mx-6 text-xs">PREDICTED RACE & AGE</h1>
-      <div className="mx-10 mt-5 flex h-[60dvh] gap-x-3 [&>*]:border-t [&>*:not(:first-child)]:bg-gray-100">
-        <div className="flex flex-2 flex-col gap-y-2 font-semibold [&>*]:flex [&>*]:h-1/5 [&>*]:cursor-pointer [&>*]:flex-col [&>*]:justify-between [&>*]:px-2 [&>*]:py-3 [&>*]:text-left [&>*]:text-sm [&>*:not(.bg-black)]:hover:bg-gray-200 [&>*:not(:first-child)]:border-t">
+      <div className="mx-10 mt-2 flex flex-col gap-y-3 lg:h-[60dvh] lg:flex-row lg:gap-x-3 [&>*]:border-t [&>*:not(:first-child)]:bg-gray-100">
+        <div className="flex flex-col gap-y-2 font-semibold lg:flex-2 [&>*]:flex [&>*]:h-1/5 [&>*]:cursor-pointer [&>*]:flex-col [&>*]:justify-between [&>*]:px-2 [&>*]:py-3 [&>*]:text-left [&>*]:text-sm [&>*:not(.bg-black)]:hover:bg-gray-200 [&>*:not(:first-child)]:border-t">
           <button
             className={
               selectedDemographic == "RACE"
@@ -102,7 +100,7 @@ function Summary() {
             <span>SEX</span>
           </button>
         </div>
-        <div className="relative flex-10 p-5">
+        <div className="relative h-[60dvh] p-5 lg:flex-10">
           <p className="text-3xl">
             {selectedDemographic == "RACE"
               ? selectedRace
@@ -112,10 +110,10 @@ function Summary() {
           </p>
           <ConfidenceCircle percentage={selectedConfidence} />
         </div>
-        <div className="flex flex-4 flex-col justify-center">
-          <div className="flex flex-1 items-center justify-between px-2 text-sm font-semibold">
-            <span className="">{selectedDemographic}</span>
-            <span className="">A.I. CONFIDENCE</span>
+        <div className="mb-30 flex h-[60dvh] flex-col justify-center lg:mb-0 lg:flex-4">
+          <div className="flex flex-1 items-center justify-between px-1 text-sm font-semibold lg:px-2">
+            <span className="lg:text-xs">{selectedDemographic}</span>
+            <span className="lg:text-xs">A.I. CONFIDENCE</span>
           </div>
           <div className="flex flex-9 flex-col [&_img]:size-3 [&>*]:flex [&>*]:h-1/9 [&>*]:cursor-pointer [&>*]:items-center [&>*]:justify-between [&>*]:px-2 [&>*:not(.bg-black)]:hover:bg-gray-200">
             {selectedDemographic == "RACE"
@@ -134,7 +132,7 @@ function Summary() {
                           : "bg-gray-100"
                       }
                     >
-                      <div className="flex items-center gap-x-3">
+                      <div className="flex items-center gap-x-1 text-left lg:gap-x-3">
                         <img
                           src={
                             selectedRace == prediction[0]
@@ -142,9 +140,9 @@ function Summary() {
                               : RadioButton
                           }
                         />
-                        <p className="text-sm">{prediction[0]}</p>
+                        <p className="text-xs lg:text-sm">{prediction[0]}</p>
                       </div>
-                      <p className="text-sm">{prediction[1]}%</p>
+                      <p className="text-xs lg:text-sm">{prediction[1]}%</p>
                     </button>
                   ))
                   .sort((a, b) => b - a)
@@ -163,7 +161,7 @@ function Summary() {
                           : "bg-gray-100"
                       }
                     >
-                      <div className="flex items-center gap-x-3">
+                      <div className="flex items-center gap-x-1 text-left lg:gap-x-3">
                         <img
                           src={
                             selectedAge == prediction[0]
@@ -171,9 +169,9 @@ function Summary() {
                               : RadioButton
                           }
                         />
-                        <p className="text-sm">{prediction[0]}</p>
+                        <p className="text-xs lg:text-sm">{prediction[0]}</p>
                       </div>
-                      <p className="text-sm">{prediction[1]}%</p>
+                      <p className="text-xs lg:text-sm">{prediction[1]}%</p>
                     </button>
                   ))
                 : sexPredictions.map((prediction, index) => (
@@ -190,7 +188,7 @@ function Summary() {
                           : "bg-gray-100"
                       }
                     >
-                      <div className="flex items-center gap-x-3">
+                      <div className="flex items-center gap-x-1 text-left lg:gap-x-3">
                         <img
                           src={
                             selectedSex == prediction[0]
@@ -198,20 +196,20 @@ function Summary() {
                               : RadioButton
                           }
                         />
-                        <p className="text-sm">{prediction[0]}</p>
+                        <p className="text-xs lg:text-sm">{prediction[0]}</p>
                       </div>
-                      <p className="text-sm">{prediction[1]}%</p>
+                      <p className="text-xs lg:text-sm">{prediction[1]}%</p>
                     </button>
                   ))}
           </div>
         </div>
       </div>
-      <p className="absolute bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-400">
+      <p className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-center text-sm text-gray-400 sm:bottom-7 sm:text-xs">
         If A.I. estimate is wrong, select the correct one.
       </p>
-      <BackButton page={"select"} />
-      <ProceedButton page={""} text={"HOME"} />
-    </>
+      <BackButton page={"select"} summary={true} />
+      <ProceedButton page={""} text={"HOME"} summary={true} />
+    </div>
   );
 }
 

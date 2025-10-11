@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-function BackButton({ page, gray }) {
+function BackButton({ page, gray, camera, summary }) {
   return (
     <Link
       to={`/${page}`}
-      className="left-arrow absolute bottom-3 left-10 z-1 -translate-y-1/2 text-sm transition-all duration-900 ease-in-out"
+      className={`left-arrow absolute ${camera ? "bottom-30" : summary ? "-bottom-1" : "bottom-3"} left-10 z-1 -translate-y-1/2 text-sm transition-all duration-900 ease-in-out`}
     >
-      <div className="group flex items-center gap-x-7">
+      <div className="group flex items-center gap-x-5">
         <div
           className={`rotate-45 items-center border-1 ${gray && "border-gray-200"} p-0 transition-transform duration-300 ease-in-out group-hover:scale-110`}
         >

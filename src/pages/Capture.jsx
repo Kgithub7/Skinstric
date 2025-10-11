@@ -88,7 +88,7 @@ function Capture() {
         {picture != null ? (
           <>
             {loading && (
-              <div className="absolute right-1/2 bottom-1/2 flex h-1/4 w-1/7 translate-1/2 flex-col items-center justify-center gap-y-10 rounded-lg bg-gray-300 p-3 text-gray-700 opacity-80">
+              <div className="absolute right-1/2 bottom-1/2 flex h-1/5 w-1/7 min-w-30 translate-1/2 flex-col items-center justify-center gap-y-10 rounded-lg bg-gray-300 p-3 text-center text-sm text-gray-700 opacity-80 md:text-base lg:h-1/4">
                 <p className="font-semibold">ANALYZING IMAGE</p>
                 <div className="flex justify-center gap-x-4 [&>*]:size-2 [&>*]:rounded-full [&>*]:bg-gray-700">
                   <div className="animate-bounce animate-delay-100"></div>
@@ -102,7 +102,7 @@ function Capture() {
               <span className="font-bold">PREVIEW</span>
               <div className="flex gap-x-10 [&>*]:cursor-pointer [&>*]:px-3 [&>*]:py-2">
                 <button
-                  className="bg-white text-black hover:bg-gray-200"
+                  className="min-w-18 bg-white text-black hover:bg-gray-200"
                   onClick={() => {
                     setPicture(null);
                     startCamera();
@@ -111,7 +111,7 @@ function Capture() {
                   Retake
                 </button>
                 <button
-                  className="bg-black hover:bg-gray-800"
+                  className="min-w-30 bg-black hover:bg-gray-800"
                   onClick={() => {
                     setLoading(true);
                     upload();
@@ -125,12 +125,12 @@ function Capture() {
           </>
         ) : (
           <>
-            <div className="absolute bottom-8 left-1/2 z-1 flex w-[40dvw] -translate-x-1/2 flex-col items-center gap-y-3 text-sm">
-              <p className="">TO GET BETTER RESULTS MAKE SURE TO HAVE:</p>
+            <div className="absolute bottom-8 left-1/2 z-1 flex -translate-x-1/2 flex-col items-center gap-y-3 text-center text-xs md:text-sm lg:w-[40dvw]">
+              <p>TO GET BETTER RESULTS MAKE&nbsp;SURE&nbsp;TO&nbsp;HAVE:</p>
               <div className="flex gap-x-5">
-                <p>◇ NEUTRAL EXPRESSION</p>
-                <p>◇ FRONTAL POSE</p>
-                <p>◇ ADEQUATE LIGHTING</p>
+                <p>◇&nbsp;NEUTRAL EXPRESSION</p>
+                <p>◇&nbsp;FRONTAL POSE</p>
+                <p>◇&nbsp;ADEQUATE LIGHTING</p>
               </div>
             </div>
             <video
@@ -140,18 +140,18 @@ function Capture() {
               playsInline
             ></video>
             <canvas className="hidden" ref={canvasRef}></canvas>
-            <div className="absolute top-1/2 right-5 flex items-center gap-x-7">
-              <p className="text">TAKE PICTURE</p>
+            <div className="absolute top-1/2 right-5 flex min-h-12.5 items-center gap-x-5 text-sm lg:text-base">
+              <p className="hidden md:block">TAKE PICTURE</p>
               <button
-                className="size-[5dvw] min-w-12.5 cursor-pointer transition duration-200 ease-in-out hover:scale-105"
+                className="mr-4 flex size-[5dvw] cursor-pointer items-center transition duration-200 ease-in-out hover:scale-105"
                 onClick={takePicture}
               >
-                <img src={Shutter} />
+                <img src={Shutter} className="min-h-12.5 min-w-12.5" />
               </button>
             </div>
           </>
         )}
-        <BackButton page={"result"} gray={true} />
+        {!picture && <BackButton page={"result"} gray={true} camera={true} />}
       </div>
     </div>
   );

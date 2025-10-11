@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import LeftBracket from "../assets/leftBracket.png";
-import RightBracket from "../assets/rightBracket.png";
+import LeftBracket from "../assets/LeftBracket.png";
+import RightBracket from "../assets/RightBracket.png";
 
 function Nav() {
   return (
