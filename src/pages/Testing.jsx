@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { toast } from "react-toastify";
 import Nav from "../components/Nav";
 import axios from "axios";
 import BackButton from "../components/ui/BackButton";
@@ -30,7 +31,10 @@ function Testing() {
       await Promise.all([delay, request]);
       setProceed(true);
     } catch (error) {
-      alert("Error sending data");
+      toast.error("Error sending data", {
+        autoClose: 3000,
+        theme: "dark",
+      });
     } finally {
       setLoading(false);
     }
@@ -47,7 +51,7 @@ function Testing() {
       } else if (!sessionStorage.getItem("Name")) {
         setError(false);
         sessionStorage.setItem("Name", input);
-        inputRef.current.placeholder = "your city name";
+        inputRef.current.placeholder = "Enter your location";
       } else {
         setError(false);
         sessionStorage.setItem("Location", input);
@@ -88,13 +92,13 @@ function Testing() {
             {empty ? (
               <p className="text-sm text-red-500">
                 Please enter your{" "}
-                {sessionStorage.getItem("Name") ? "city" : "name"}
+                {sessionStorage.getItem("Name") ? "location" : "name"}
               </p>
             ) : (
               error && (
                 <p className="text-sm text-red-500">
-                  Please enter a valid{" "}
-                  {sessionStorage.getItem("Name") ? "city" : "name"} without
+                  Please enter a valid
+                  {sessionStorage.getItem("Name") ? "location" : "name"} without
                   numbers or special characters
                 </p>
               )
@@ -106,7 +110,7 @@ function Testing() {
                 type="text"
                 name="name"
                 onChange={(event) => setInput(event.target.value)}
-                placeholder="Introduce Yourself"
+                placeholder="Enter your name"
                 className="w-[30dvw] min-w-[260px] border-b-1 text-center text-2xl tracking-tighter outline-0 md:text-3xl lg:text-4xl 2xl:text-6xl"
               />
             </form>

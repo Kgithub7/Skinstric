@@ -205,7 +205,7 @@ function Summary() {
         </div>
       </div>
       <p className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-center text-sm text-gray-400 sm:bottom-7 sm:text-xs">
-        If A.I. estimate is wrong, select the correct one.
+        Please note that results are only a simulation
       </p>
       <BackButton page={"select"} summary={true} />
       <ProceedButton page={""} text={"HOME"} summary={true} />

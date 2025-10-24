@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { PredictionContext } from "./context/PredictionContext.jsx";
+import { ToastContainer } from "react-toastify";
 import { useState } from "react";
 import Home from "./pages/Home.jsx";
 import Testing from "./pages/Testing.jsx";
@@ -23,6 +24,7 @@ function App() {
           <Route path="/camera" element={<Camera />} />
           <Route path="/camera/capture" element={<Capture />} />
         </Routes>
+        <ToastContainer limit={1} autoClose={3000} pauseOnFocusLoss={false} />
       </Router>
     </PredictionContext>
   );

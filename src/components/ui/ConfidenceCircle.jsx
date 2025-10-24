@@ -3,7 +3,7 @@ function ConfidenceCircle({ percentage }) {
   const offset = circumference - (percentage / 100) * circumference;
 
   return (
-    <div className="absolute right-0 bottom-0 flex size-[30dvh] sm:size-[40dvh] xl:size-[50dvh] items-center justify-center text-3xl">
+    <div className="absolute right-0 bottom-0 flex size-[30dvh] items-center justify-center text-3xl sm:size-[40dvh] xl:size-[50dvh]">
       <svg className="-rotate-90" viewBox="0 0 120 120">
         <circle
           cx="60"

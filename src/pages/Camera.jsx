@@ -17,7 +17,9 @@ function Camera() {
         <div className="absolute size-[36dvw] min-h-[320px] min-w-[320px] -rotate-25 animate-spin overflow-hidden border-3 border-dotted border-gray-300 opacity-40 transition-all duration-900 ease-in-out animate-duration-[10000ms] animate-infinite lg:size-[34dvw]"></div>
         <div className="z-1 flex animate-pulse flex-col items-center justify-between gap-y-3">
           <img src={CameraImg} className="size-[9dvw]" />
-          <p className="font-semibold">SETTING UP CAMERA...</p>
+          <p className="text-sm font-semibold sm:text-base">
+            SETTING UP CAMERA...
+          </p>
         </div>
       </div>
       <div className="absolute bottom-8 left-1/2 z-1 flex -translate-x-1/2 flex-col items-center gap-y-3 text-center text-xs md:text-sm lg:w-[40dvw]">

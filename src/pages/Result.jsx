@@ -1,6 +1,7 @@
+import { PredictionContext } from "../context/PredictionContext.jsx";
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { PredictionContext } from "../context/PredictionContext.jsx";
+import { toast } from "react-toastify";
 import Nav from "../components/Nav";
 import CameraImg from "../assets/Camera.png";
 import CameraArrow from "../assets/CameraArrow.png";
@@ -39,7 +40,10 @@ function Result() {
       setPredictions(data);
       navigate("/select");
     } catch (error) {
-      alert("Error Uploading Photo");
+      toast.error("Error Uploading Photo", {
+        autoClose: 3000,
+        theme: "dark",
+      });
     } finally {
       setLoading(false);
     }

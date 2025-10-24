@@ -32,9 +32,9 @@ function Home() {
           </div>
         </div>
       </Link>
-      <div className="absolute top-1/2 left-1/2 hidden -translate-1/2 animate-fade flex-col justify-between text-center leading-none transition-all duration-900 ease-in-out animate-duration-2000 animate-ease-in-out lg:flex lg:text-7xl xl:text-[100px] [.left-arrow:hover~&]:left-3/4 [.left-arrow:hover~&>p]:translate-x-1/5 [.right-arrow:hover~&]:left-1/4 [.right-arrow:hover~&>p]:-translate-x-1/5">
+      <div className="absolute top-1/2 left-1/2 hidden -translate-1/2 animate-fade flex-col justify-between text-center leading-none transition-all duration-900 ease-in-out animate-duration-2000 animate-ease-in-out lg:flex lg:text-7xl xl:text-[100px] [.left-arrow:hover~&]:left-3/4 [.left-arrow:hover~&>p]:translate-x-[calc(16%+16px)] [.right-arrow:hover~&]:left-1/4 [.right-arrow:hover~&>p]:-translate-x-[calc(16%+16px)]">
         <h1>Sophisticated</h1>
-        <p className="transition-all duration-900 ease-in-out">skincare</p>
+        <p className="transition-all duration-900 ease-in-out">Skincare</p>
       </div>
 
       <div className="absolute top-1/2 left-1/2 flex -translate-1/2 flex-col items-center gap-y-3 text-center lg:hidden">
@@ -44,7 +44,7 @@ function Home() {
           <h1>
             Sophisticated
             <br />
-            skincare
+            Skincare
           </h1>
         </div>
         <div className="bottom-12 left-2 text-xs font-semibold text-gray-500">

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { PredictionContext } from "../context/PredictionContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import Nav from "../components/Nav";
 import BackButton from "../components/ui/BackButton";
 import Shutter from "../assets/Shutter.png";
@@ -36,7 +37,10 @@ function Capture() {
       videoRef.current.srcObject = stream;
       setVideo(stream);
     } catch {
-      alert("Could not access camera");
+      toast.error("Could not access camera", {
+        autoClose: 3000,
+        theme: "dark",
+      });
       navigate("/result");
     }
   };
@@ -73,7 +77,10 @@ function Capture() {
       console.log(predictions);
       console.log(picture);
     } catch {
-      alert("Error uploading photo");
+      toast.error("Error uploading photo", {
+        autoClose: 3000,
+        theme: "dark",
+      });
     } finally {
       setLoading(false);
     }
